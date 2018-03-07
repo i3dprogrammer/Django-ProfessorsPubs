@@ -74,28 +74,23 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'src.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/1.11/ref/settings/#databases
-
-# DATABASES = {
-    # 'default': {
-        # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        # 'NAME': 'django',
-        # 'USER': 'mbsdhjjyejsuvr',
-        # 'PASSWORD': '760f824373f3f945d6b244e82f88c611597fe983b009f8c1d47b9fa530703933',
-        # 'HOST': '127.0.0.1',
-        # 'PORT': '5432',
-    # }
-# }
-# DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'ddo90qs1ghfgq5',
+        'USER': 'mbsdhjjyejsuvr',
+        'PASSWORD': '760f824373f3f945d6b244e82f88c611597fe983b009f8c1d47b9fa530703933',
+        'HOST': 'ec2-54-221-234-62.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
+# DATABASES = {
+    # 'default': {
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    # }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -145,6 +140,6 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-
-DATABASE_URL = os.environ['DATABASE_URL']
-DATABASES['default'] = dj_database_url.config(default=DATABASE_URL)#conn_max_age=600, ssl_require=True)
+# DATABASE
+# DATABASE_URL = os.environ['DATABASE_URL']
+# DATABASES['default'] = dj_database_url.config(default=DATABASE_URL)#conn_max_age=600, ssl_require=True)
