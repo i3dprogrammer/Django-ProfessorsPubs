@@ -78,16 +78,16 @@ WSGI_APPLICATION = 'src.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'django',
-        'USER': 'mbsdhjjyejsuvr',
-        'PASSWORD': '760f824373f3f945d6b244e82f88c611597fe983b009f8c1d47b9fa530703933',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
-    }
-}
+# DATABASES = {
+    # 'default': {
+        # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        # 'NAME': 'django',
+        # 'USER': 'mbsdhjjyejsuvr',
+        # 'PASSWORD': '760f824373f3f945d6b244e82f88c611597fe983b009f8c1d47b9fa530703933',
+        # 'HOST': '127.0.0.1',
+        # 'PORT': '5432',
+    # }
+# }
 # DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 # DATABASES = {
     # 'default': {
@@ -144,3 +144,5 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
