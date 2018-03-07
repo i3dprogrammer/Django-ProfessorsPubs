@@ -15,9 +15,9 @@ class Publication(models.Model):
         ('3', 'Book'),
     )
 
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
-    research_field = models.ForeignKey(ResearchField)
+    research_field = models.ForeignKey(ResearchField, on_delete=models.CASCADE)
     authors = models.CharField(max_length=100)
     national = models.BooleanField(default=False)
     date = models.IntegerField(default=0)
