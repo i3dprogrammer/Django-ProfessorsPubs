@@ -145,4 +145,6 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+
+DATABASE_URL = os.environ['DATABASE_URL']
+DATABASES['default'] = dj_database_url.config(default=DATABASE_URL)#conn_max_age=600, ssl_require=True)
