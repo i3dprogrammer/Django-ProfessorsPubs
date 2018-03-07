@@ -1,0 +1,77 @@
+$white: #fff;
+$black: #333;
+$grayLight: #f3f3f3;
+$gray: #999999;
+$basic: #10325d;
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  overflow-x: hidden !important;
+  font-family: 'Open Sans', sans-serif !important;
+}
+
+p {
+  padding-right: 30px;
+  font-family: 'Open Sans', sans-serif !important;
+  color: $gray;
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Raleway', sans-serif !important;
+}
+
+.btn {
+  background: $basic;
+  color: $white;
+  display: block;
+  padding: 10px;
+  font-size: 15px;
+  text-align: center;
+  &:hover {
+    color: $white;
+  }
+}
+
+.dropdown-toggle{
+  background:$white;
+  padding: 6px 12px;
+  color: #888;
+}
+
+.form-group .bootstrap-select.btn-group {
+  width: 100% !important
+}
+
+input, textarea, input:focus, textarea:focus {
+  box-shadow: none !important;
+  border-color: #ccc !important
+}
+
+a, a:hover, a:focus, .btn:focus, .btn.focus, .btn:active:focus, .btn:active.focus, .btn.active:focus, .btn.active.focus, button, .btn, .bootstrap-select .dropdown-toggle:focus {
+  text-decoration: none !important;
+  outline: none !important;
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%
+}
+
+@mixin transition() {
+  -webkit-transition: all .4s ease-in-out 0s;
+  -moz-transition: all .4s ease-in-out 0s;
+  -o-transition: all .4s ease-in-out 0s;
+  transition: all .4s ease-in-out 0s
+}
+
+/********************************/
+/*       end basic   */
+/********************************/
+

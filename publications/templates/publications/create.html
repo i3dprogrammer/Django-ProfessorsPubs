@@ -1,0 +1,203 @@
+{% extends "header.html" %}
+
+{% block title %} Add new publication {%endblock%}
+
+{% block content %}
+<section class="container">
+    <div class="publication">
+        <div class="box-form">
+            <div class="header">
+                <h3>Publication</h3>
+            </div>
+            {% if errors %}
+                <div class="alert alert-danger" role="alert">
+                    {% for error in errors %}
+                        {{error}} <br/>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <form id="publication_form" method="POST" action="">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Title:-</label>
+                            <input
+                                class="form-control"
+                                type="text"
+                                name="title"
+                                placeholder="Title"
+                                value="{{title}}">
+                            <div class="custom-alert">this field is requird *</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Authors:-</label>
+                            <input
+                                class="form-control"
+                                type="text"
+                                name="authors"
+                                placeholder="Authors"
+                                value="{{authors}}">
+                            <div class="custom-alert">this field is requird *</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Research field:-</label>
+                            <select class="selectpicker" data-live-search="true" title="Choose research field" name="research_field">
+                                {% for field in fields %}
+                                    <option {% if field == research_field %}selected="selected" {%endif%}>{{field.name}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Nationality:-</label>
+                            <select class="selectpicker" data-live-search="true" title="Choose" name="national">
+                                <option {% if national %} selected="selected" {%endif%}>National</option>
+                                <option {% if not national %} selected="selected" {%endif%}>International</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Year of Research:-</label>
+                            <select class="selectpicker" data-live-search="true" title="Choose publication year" name="year">
+                                {% for year in years %}
+                                    <option {% if date == year %} selected="selected" {%endif%}>{{year}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Published In:-</label>
+                            <div class="checkbox-group">
+                                <!--Jonfrance-->
+                                <input
+                                    type="radio"
+                                    id="jonfrance"
+                                    name="published_in"
+                                    class="material-checkbox"
+                                    data-target="jonfrance"
+                                    value="1">
+                                <label class="checkbox_label" for="jonfrance">Journal</label>
+                                <div class="jonfrance hidde">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input
+                                                    class="form-control"
+                                                    type="text"
+                                                    name="details"
+                                                    placeholder="Journal Name"
+                                                    value="{{details}}">
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input
+                                                    class="form-control"
+                                                    type="text"
+                                                    name="identifier"
+                                                    placeholder="DOI"
+                                                    value="{{identifier}}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Confrance-->
+                                <input
+                                    type="radio"
+                                    id="confrance"
+                                    data-target="confrance"
+                                    name="published_in"
+                                    class="material-checkbox"
+                                    value="2">
+                                <label class="checkbox_label" for="confrance">Confrance</label>
+                                <div class="confrance hidde">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <input
+                                                    class="form-control"
+                                                    type="text"
+                                                    name="details"
+                                                    placeholder="Confrance Details"
+                                                    value="{{details}}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Book-->
+                                <input
+                                    type="radio"
+                                    id="book"
+                                    name="published_in"
+                                    class="material-checkbox"
+                                    data-target="book"
+                                    value="3">
+                                <label class="checkbox_label" for="book">Book</label>
+                                 <div class="book hidde">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input
+                                                    class="form-control"
+                                                    type="text"
+                                                    name="details"
+                                                    placeholder="Book Name"
+                                                    value="{{details}}">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input
+                                                    class="form-control"
+                                                    type="text"
+                                                    name="identifier"
+                                                    placeholder="ISSN"
+                                                    value="{{identifier}}">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Abstract:-</label>
+                            <textarea class="form-control" name="abstract" style="resize:vertical;">{{abstract}}</textarea>
+                            <!--error-->
+                            <div class="custom-alert">this field is requird *</div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-block"><i class="fa fa-cloud-upload"></i> Upload</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block script %}
+<script>
+    $(function(){
+        {% if pub_type == '1' %}
+            $('#jonfrance').click();
+        {% elif pub_type == '2' %}
+            $('#confrance').click();
+        {% elif pub_type == '3' %}
+            $('#book').click();
+        {% endif %}
+    })
+</script>
+{% endblock %}

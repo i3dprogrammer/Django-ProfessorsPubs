@@ -1,0 +1,78 @@
+{% extends "header.html" %}
+
+{% block title %} Add new publication {%endblock%}
+
+{% block content %}
+<section class="container">
+    <div class="publication creat-publication">
+        <div class="box-form">
+            <div class="header">
+                <h3>Publication</h3>
+            </div>
+            <form id="form-publication">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="details-creat">
+                            <label>Title:-</label>
+                            <p>{{publication.title}}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="details-creat">
+                            <label>Authors:-</label>
+                            <p>{{publication.authors}}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="details-creat">
+                            <label>Research field:-</label>
+                            <p>{{publication.research_field.name}}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="details-creat">
+                            <label>Nationality:-</label>
+                            <p>{% if publication.national %}National{%else%}International{%endif%}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="details-creat">
+                            <label>Year of Research:-</label>
+                            <p>{{publication.date}}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="details-creat">
+                            <label>Published in:-</label>
+                            <p>{{publication.get_pub_type_display}}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="details-creat">
+                            <label>{% if publication.pub_type == '1' %} Journal {% elif publication.pub_type == '2' %} Confrance {% elif publication.pub_type == '3' %} Book {%endif%} {% if publication.pub_type == '2' %}Details{% else %}Name{% endif %}:-</label>
+                            <p>{{publication.details}}</p>
+                        </div>
+                    </div>
+                    {% if publication.pub_type != '2' %}
+                        <div class="col-md-6">
+                            <div class="details-creat">
+                                <label>Identifier (DOI, ISSN):-</label>
+                                <p>{{publication.identifier}}</p>
+                            </div>
+                        </div>
+                    {% endif %}
+                    <div class="col-md-12">
+                        <div class="details-creat">
+                            <label>Abstract:-</label>
+                            <p class="abstract">{{publication.abstract}}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <a href="{% url 'publications:edit' publication.id %}" class="btn"><i class="fa fa-cloud-upload"></i> Change</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}

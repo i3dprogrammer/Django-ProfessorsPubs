@@ -1,0 +1,81 @@
+{% extends "header.html" %}
+
+{% block title %} Add new publication {%endblock%}
+
+{% block content %}
+<section class="container">
+    <center><a href="{% url 'p_profile:view' %}">Profile *TEMP*</a></center>
+    <div class="publication">
+        <div class="box-form">
+            <div class="header">
+                <h3>Publication</h3>
+            </div>
+            {% if errors %}
+                <div class="alert alert-danger" role="alert">
+                    {% for error in errors %}
+                        {{error}} <br/>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Title:-</label>
+                        <label>{{publication.title}}</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Authors:-</label>
+                        <label>{{publication.authors}}</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Research field:-</label>
+                        <label>{{publication.research_field.name}}</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Nationality:-</label>
+                        <label>{% if publication.national %}National {%else%} International {%endif%}</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Year of Research:-</label>
+                        <label>{{publication.date}}</label>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Published In:-</label>
+                        <label>{{publication.get_pub_type_display}}</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Details/Name:-</label>
+                        <label>{{publication.details}}</label>
+                    </div>
+                </div>
+                {% if publication.pub_type != '2' %}
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Identifier:-</label>
+                        <label>{{publication.identifier}}</label>
+                    </div>
+                </div>
+                {% endif %}
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Abstract:-</label>
+                        <label>{{publication.abstract}}</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

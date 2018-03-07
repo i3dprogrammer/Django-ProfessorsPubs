@@ -1,0 +1,76 @@
+{% extends "header.html" %}
+
+{% block title %} {{profile.name}} Profile {%endblock%}
+
+{% block content %}
+<section class="profile creat-profile">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="list-research">
+                    <div class="header">
+                        <h3><i class="fa fa-file-text-o"></i> List Of Publications</h3>
+                    </div>
+                    <ul class="list-unstyled">
+                        {% for publication in publications %}
+                        <li><a href="{% url 'publications:view' publication.id %}">{{publication.title}}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <!-- TODO Should probably use bootstrap pagination here -->
+                {% if publications.has_previous %}
+                <div class="pull-left">
+                    <button class="btn" onclick="location.href='?page={{publications.previous_page_number}}'"><<</button>
+                </div>
+                {% endif %}
+                <div class="text-center block-center">
+                    Page {{publications.number}} / {{publications.paginator.num_pages}}
+                </div>
+                <div class="pull-right">
+                    {% if publications.has_next %}
+                        <button class="btn" onclick="location.href='?page={{publications.next_page_number}}'">>></button>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="box-form">
+                    <div class="header">
+                        <h3>Profile</h3>
+                    </div>
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="details-creat">
+                                    <label>Name:-</label>
+                                    <p>{{profile.name}}</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="details-creat">
+                                    <label>Speciality:-</label>
+                                    <p>{{profile.speciality}}</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="details-creat">
+                                    <label>Department:-</label>
+                                    <p>{{profile.department.name}}</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="details-creat">
+                                    <label>Affiliation:-</label>
+                                    <p>{{profile.affiliation.name}}</p>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <a href="{% url 'publications:new' %}" class="btn">New publication</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{%endblock%}
