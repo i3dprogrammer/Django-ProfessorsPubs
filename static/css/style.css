@@ -51,6 +51,11 @@ img {
 /********************************/
 /*       end basic   */
 /********************************/
+body {
+  background: -moz-linear-gradient(45deg, #10325d, #16529d);
+  background: -webkit-linear-gradient(45deg, #10325d, #16529d);
+  background: linear-gradient(45deg, #10325d, #16529d); }
+
 /********************************/
 /*       custom checkbox   */
 /********************************/
@@ -134,7 +139,7 @@ img {
     height: 15px;
     width: 5px; } }
 .box-form {
-  background: #f3f3f3;
+  background: #fff;
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 2px; }
@@ -172,14 +177,45 @@ img {
   margin: 100px auto; }
 
 /********************************/
+/*      navigation-bar*/
+/********************************/
+.navigation-bar {
+  background: #f3f3f3;
+  padding: 10px 20px;
+  border-radius: 2px; }
+  .navigation-bar a {
+    -webkit-transition: all .4s ease-in-out 0s;
+    -moz-transition: all .4s ease-in-out 0s;
+    -o-transition: all .4s ease-in-out 0s;
+    transition: all 0.4s ease-in-out 0s;
+    color: #fff;
+    display: inline-block; }
+  .navigation-bar ul {
+    display: flex;
+    flex-wrap: wrap; }
+    .navigation-bar ul a {
+      margin-right: 10px;
+      color: #0f325e;
+      font-weight: bold;
+      padding: 5px;
+      border-bottom: 1px solid #0f325e; }
+  .navigation-bar .logout {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    background: #10325d;
+    padding: 10px;
+    border-radius: 2px; }
+    .navigation-bar .logout:hover {
+      opacity: 0.9; }
+
+/********************************/
 /*      profile page */
 /********************************/
 .profile {
   margin: 100px auto; }
   .profile .list-research {
-    background: #f3f3f3;
-    border: 1px solid #ddd;
-    border-radius: 2px; }
+    background: #fff; }
     .profile .list-research .header {
       background: #10325d;
       padding: 20px 15px;
@@ -189,23 +225,25 @@ img {
         font-size: 18px;
         letter-spacing: 1px;
         margin: 0; }
-    .profile .list-research li {
+    .profile .list-research li a {
       -webkit-transition: all .4s ease-in-out 0s;
       -moz-transition: all .4s ease-in-out 0s;
       -o-transition: all .4s ease-in-out 0s;
       transition: all 0.4s ease-in-out 0s;
+      overflow-x: auto;
+      word-wrap: break-word;
       margin: 0;
       padding: 5px 20px;
-      border-bottom: 1px solid #ddd; }
-      .profile .list-research li a {
-        color: #333;
-        font-size: 13px; }
-      .profile .list-research li:last-of-type {
-        border-bottom: 0; }
-      .profile .list-research li:hover {
-        background: #10325d; }
-        .profile .list-research li:hover a {
-          color: #fff; }
+      border-bottom: 1px solid #ddd;
+      color: #333;
+      font-size: 13px;
+      display: inline-block;
+      width: 100%; }
+      .profile .list-research li a:hover {
+        background: #10325d;
+        color: #fff; }
+    .profile .list-research li:last-of-type a {
+      border-bottom: 0; }
 
 .creat-profile .details-creat, .creat-publication .details-creat {
   padding: 10px 0;
@@ -213,7 +251,9 @@ img {
   .creat-profile .details-creat label, .creat-publication .details-creat label {
     font-size: 16px; }
   .creat-profile .details-creat p, .creat-publication .details-creat p {
-    padding: 0; }
+    padding: 0;
+    overflow-x: auto;
+    word-wrap: break-word; }
 
 /********************************/
 /*      publication page */

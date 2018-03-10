@@ -5,6 +5,7 @@
 {% block content %}
 <section class="container">
     <div class="publication creat-publication">
+		{% include "navbar.html" %}
         <div class="box-form">
             <div class="header">
                 <h3>Publication</h3>
@@ -37,7 +38,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="details-creat">
-                            <label>Year of Research:-</label>
+                            <label>Publication year:-</label>
                             <p>{{publication.date}}</p>
                         </div>
                     </div>

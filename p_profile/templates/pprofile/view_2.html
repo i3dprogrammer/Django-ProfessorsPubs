@@ -13,7 +13,7 @@
                     </div>
                     <ul class="list-unstyled">
                         {% for publication in publications %}
-                        <li><a href="{% url 'publications:view' publication.id %}">{{publication.title}}</a></li>
+                        <li><a href="{% url 'publications:view' publication.id %}">{{publication.title|truncatechars:30}}</a></li>
                         {% endfor %}
                     </ul>
                 </div>
@@ -24,7 +24,7 @@
                 </div>
                 {% endif %}
                 <div class="text-center block-center">
-                    Page {{publications.number}} / {{publications.paginator.num_pages}}
+                    <font color=white>Page {{publications.number}} / {{publications.paginator.num_pages}}</font>
                 </div>
                 <div class="pull-right">
                     {% if publications.has_next %}
@@ -33,6 +33,7 @@
                 </div>
             </div>
             <div class="col-md-8">
+				{% include "navbar.html" %}
                 <div class="box-form">
                     <div class="header">
                         <h3>Profile</h3>
@@ -64,7 +65,7 @@
                                 </div>
                             </div>
                             <div class="col-md-12">
-                                <a href="{% url 'publications:new' %}" class="btn">New publication</a>
+                                <!-- <a href="{% url 'publications:new' %}" class="btn">New publication</a> -->
                             </div>
                         </div>
                     </form>

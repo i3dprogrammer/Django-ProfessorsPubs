@@ -1,0 +1,37 @@
+{% extends "print_header.html" %}
+
+{% block title %} Print publications {%endblock%}
+
+{% block content %}
+<style>
+    @page { size: auto;  margin: 0mm; }
+</style>
+<table id="example" class="table table-stripped table-bordered" cellspacing="0" width="100%">
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Authors</th>
+        <th>Year</th>
+    </tr>
+    </thead>
+    <tbody>
+        {% for publication in publications %}
+            </tr>
+                <td>{{publication.title|truncatechars:100}}</td>
+                <td>{{publication.authors}}</td>
+                <td>{{publication.date}}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+
+{% block script %}
+
+<script>
+    $(function(){
+        window.print();
+        window.close();
+    });
+</script>
+{%endblock%}

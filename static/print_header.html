@@ -12,23 +12,18 @@
         <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
         <link href="{% static 'css/bootstrap-select.min.css' %}" rel="stylesheet">
         <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
-        <link href="{% static 'css/style.css' %}" rel="stylesheet">
+        <!-- <link href="{% static 'css/style.css' %}" rel="stylesheet">
         <link href="{% static 'css/jquery.dataTables.min.css' %}" rel="stylesheet">
         <link href="{% static 'css/table-style.css' %}" rel="stylesheet">
-        <link href="{% static 'css/dirty.css' %}" rel="stylesheet">
+        <link href="{% static 'css/dirty.css' %}" rel="stylesheet"> -->
     </head>
     <body>
-        <div class="logo">
-            <div class="container">
-                <img src="{% static 'images/logo.png' %}">
-            </div>
-        </div>
         {% block content %}{% endblock %}
         <script src="{% static 'js/jquery.2.1.4.min.js' %}"></script>
-        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <!--<script src="{% static 'js/bootstrap.min.js' %}"></script>
         <script src="{% static 'js/bootstrap-select.min.js' %}"></script>
         <script src="{% static 'js/custom.js' %}"></script>
-        <script src="{% static 'js/jquery.dataTables.min.js' %}"></script>
+        <script src="{% static 'js/jquery.dataTables.min.js' %}"></script> -->
         {% block script %}{%endblock%}
     </body>
 </html>

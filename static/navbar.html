@@ -1,0 +1,16 @@
+<div class="navigation-bar">
+	<div class="row">
+		<div class="col-md-8">
+			<ul class="list-unstyled">
+				<li><a href="{% url 'p_profile:view' %}">Profile</a></li>
+				<li><a href="{% url 'publications:new' %}">New publication</a></li>
+				{% if supervisor %}
+					<li><a href="{% url 'publications:filter' %}">Filter publications</a></li>
+				{% endif %}
+			</ul>
+		</div>
+		<div class="col-md-4">
+			<a href="{% url 'accounts:logout' %}" class="logout">Logout</a>
+		</div>
+	</div>
+</div>

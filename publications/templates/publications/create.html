@@ -5,6 +5,7 @@
 {% block content %}
 <section class="container">
     <div class="publication">
+		{% include "navbar.html" %}
         <div class="box-form">
             <div class="header">
                 <h3>Publication</h3>
@@ -27,7 +28,7 @@
                                 type="text"
                                 name="title"
                                 placeholder="Title"
-                                value="{{title}}">
+                                value="{{title}}" maxlength="100">
                             <div class="custom-alert">this field is requird *</div>
                         </div>
                     </div>
@@ -39,7 +40,7 @@
                                 type="text"
                                 name="authors"
                                 placeholder="Authors"
-                                value="{{authors}}">
+                                value="{{authors}}" maxlength="70">
                             <div class="custom-alert">this field is requird *</div>
                         </div>
                     </div>
@@ -64,7 +65,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>Year of Research:-</label>
+                            <label>Publication year:-</label>
                             <select class="selectpicker" data-live-search="true" title="Choose publication year" name="year">
                                 {% for year in years %}
                                     <option {% if date == year %} selected="selected" {%endif%}>{{year}}</option>
@@ -179,7 +180,7 @@
                         </div>
                     </div>
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-block"><i class="fa fa-cloud-upload"></i> Upload</button>
+                        <button type="submit" class="btn btn-block"><i class="fa fa-cloud-upload"></i>{% if title %} Change {%else%} Upload{%endif%}</button>
                     </div>
                 </div>
             </form>

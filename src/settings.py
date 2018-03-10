@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
-import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -24,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'k34r0@+^0#n%btv$*q0!()s8)2q+k7xv1_4qss*9q5ifc^)i%7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['156.196.195.204', 'localhost', '127.0.0.1', 'hu-qq.herokuapp.com']
+ALLOWED_HOSTS = ['122.57.160.133', '127.0.0.1']
 
 
 # Application definition
@@ -51,7 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    # 'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'src.urls'
@@ -143,3 +142,5 @@ STATICFILES_DIRS = (
 # DATABASE
 # DATABASE_URL = os.environ['DATABASE_URL']
 # DATABASES['default'] = dj_database_url.config(default=DATABASE_URL)#conn_max_age=600, ssl_require=True)
+
+TEMPLATES[0]['OPTIONS']['context_processors'].append("p_profile.context_processor.supervisor_processor")

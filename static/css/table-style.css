@@ -1,0 +1,132 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    overflow-x: hidden !important;
+    font-family: 'Open Sans', sans-serif !important;
+    background: -moz-linear-gradient(45deg, #10325d, #16529d);
+    background: -webkit-linear-gradient(45deg, #10325d, #16529d);
+    background: linear-gradient(45deg, #10325d, #16529d);
+}
+
+.logo img {
+    display: block;
+    margin: auto;
+}
+
+table.dataTable thead th {
+    position: relative;
+    background-image: none !important;
+}
+.table-page{
+    margin-top: 100px
+}
+.main {
+    background: #fff;
+    padding: 10px 20px;;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+}
+
+header, .dataTables_wrapper .dataTables_length, .dataTables_filter label,
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_filter,
+.dataTables_wrapper .dataTables_info,
+.dataTables_wrapper .dataTables_processing,
+.dataTables_wrapper .dataTables_paginate {
+
+    color: #23527c;
+    font-weight: bold;
+}
+
+.dataTables_wrapper .dataTables_length select, .dataTables_filter label input {
+    color: #10325d
+}
+
+.dataTables_filter label input {
+    border: 2px solid #ddd;
+    border-radius: 2px;
+}
+
+tfoot {
+    background: #fff;
+    color: #10325d
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    background: #f3f3f3;
+    padding: 4px 15px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover,
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active {
+    background: #10325d;
+    color: #fff !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    background: #10325d;
+    border-color: #10325d
+}
+
+.table > caption + thead > tr:first-child > td,
+.table > caption + thead > tr:first-child > th,
+.table > colgroup + thead > tr:first-child > td,
+.table > colgroup + thead > tr:first-child > th,
+.table > thead:first-child > tr:first-child > td,
+.table > thead:first-child > tr:first-child > th {
+    background: #fff;
+}
+
+table.dataTable thead th.sorting:after,
+table.dataTable thead th.sorting_asc:after,
+table.dataTable thead th.sorting_desc:after {
+    position: absolute;
+    top: 12px;
+    right: 8px;
+    display: block;
+    font-family: FontAwesome;
+    content: '';
+}
+
+table.dataTable thead th.sorting:after {
+    content: "\f0dc";
+    color: #ddd;
+    font-size: 0.8em;
+    padding-top: 0.12em;
+}
+
+table.dataTable thead th.sorting_asc:after {
+    content: "\f0de";
+}
+
+table.dataTable thead th.sorting_desc:after {
+    content: "\f0dd";
+}
+
+.print {
+    background: #fff;
+    color: #10325d;
+    display: inline-block;
+    width: 200px;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 10px;
+    margin: 20px auto;
+    text-decoration: none;
+    float: right;
+    border-radius: 2px;
+
+}
+.filter-publication{
+    display: none;
+    padding: 40px 20px;
+    background: #f3f3f3;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin: 36px 0;
+}

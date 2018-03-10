@@ -82,12 +82,10 @@ class ProfessorProfileView(View):
         if not ProfessorProfile.objects.filter(user=request.user).exists():
             return redirect('p_profile:create')
         
-        
-
-        if request.user.groups.filter(name='supervisor').exists():
-            paginator = Paginator(Publication.objects.order_by('-id'), 10)
-        else:
-            paginator = Paginator(Publication.objects.filter(user=request.user).order_by('-id'), 10)
+        # if request.user.groups.filter(name='supervisor').exists():
+        #     paginator = Paginator(Publication.objects.order_by('-id'), 10)
+        # else:
+        paginator = Paginator(Publication.objects.filter(user=request.user).order_by('-id'), 10)
 
         page = request.GET.get('page')
 
