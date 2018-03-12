@@ -149,147 +149,15 @@
                 {% endfor %}
             </tbody>
         </table>
-        
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            {% if not histogram.error %}
-                <select class="selectpicker print" onchange="catchSelectChange(this);">
-                    <option selected="selected" value="0">Years chart</option>
-                    <option value="1">Nationality chart</option>
-                    <option value="2">Published in chart</option>
-                </select>
-            {% endif %}
-        </div>
-        <div class="col-md-6">
-            <div class="pull-right">
-                <a href="" onclick="printData();" class="print text-center"> Print <i class="fa fa-print"></i></a>
-            </div>
-        </div>
+        <a href="" onclick="printData();" class="print text-center"> Print <i class="fa fa-print"></i></a>
     </div>
 </section>
-{% if not histogram.error %}
-    <div class="container">
-        <div class="row" id="chart">
-            <div class="col-md-12">
-                <canvas id="dataChart" style="background-color: white;"></canvas>
-            </div>
-        </div>
-    </div>
-{% endif %}
-
+<section class="container">
+        
+</section>
 {% endblock %}
 
 {% block script %}
-<script>
-    var ctx = document.getElementById("dataChart").getContext('2d');
-    var chart = getNewChart();
-
-    function catchSelectChange(event){
-        if(event.value == '0')
-            showYears();
-        else if(event.value == '1')
-            showNationality();
-        else if(event.value == '2')
-            showType();
-    }
-    function getNewChart(){
-        return new Chart(ctx, {
-                type: 'bar',
-                options: {
-                    legend: {
-                        display: false,
-                    },
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: true,
-                            }
-                        }]
-                    },
-                    layout: {
-                        padding: 20
-                    }
-                },
-                data: {
-                    datasets: [{
-                        label: '# of publications',
-                        data: [],
-                        backgroundColor: 'rgb(255, 152, 0)',
-                        borderColor: 'rgb(255, 99, 132)',
-                    }],
-                }
-            });
-    }
-    var chartData = {
-        years_data: {
-            labels: [
-                {% for title in histogram.years_titles %}
-                    '{{title}}',
-                {% endfor %}
-            ],
-            data: [
-                {% for value in histogram.years_values %}
-                    '{{value}}',
-                {% endfor %}
-            ]
-        },
-        nationality_data: {
-            labels: [
-                {% for title in histogram.nationality_titles %}
-                    '{{title}}',
-                {% endfor %}
-            ],
-            data: [
-                {% for value in histogram.nationality_values %}
-                    '{{value}}',
-                {% endfor %}
-            ]
-        },
-        published_data: {
-            labels: [
-                {% for title in histogram.published_titles %}
-                    '{{title}}',
-                {% endfor %}
-            ],
-            data: [
-                {% for value in histogram.published_values %}
-                    '{{value}}',
-                {% endfor %}
-            ]
-        }
-    }
-    function addChartData(labels, data){
-        chart.data.labels = labels;
-        chart.data.datasets.forEach((dataset) => {
-            dataset.data = data;
-        });
-        chart.update();
-    }
-
-    function clearChartData(){
-        chart.data.labels = [];
-        chart.data.datasets.forEach((dataset) => {
-            dataset.data.pop();
-        });
-        chart.update();
-    }
-
-    function showYears(){
-        clearChartData();
-        addChartData(chartData.years_data.labels, chartData.years_data.data.slice(0));
-    }
-    function showNationality(){
-        clearChartData();
-        addChartData(chartData.nationality_data.labels, chartData.nationality_data.data.slice(0));
-    }
-    function showType(){
-        clearChartData();
-        addChartData(chartData.published_data.labels, chartData.published_data.data.slice(0));
-    }
-
-    showYears();
-</script>
 <script type="text/javascript">
     $('#example').DataTable({
         responsive: {

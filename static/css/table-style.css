@@ -130,3 +130,8 @@ table.dataTable thead th.sorting_desc:after {
     border-radius: 4px;
     margin: 36px 0;
 }
+.table-bordered>tbody>tr>td{
+    word-break: break-word;
+    /* width: 100px; */
+    overflow: hidden;
+}

@@ -5,25 +5,34 @@
 {% block content %}
 <style>
     @page { size: auto;  margin: 0mm; }
+    .table-bordered>tbody>tr>td{
+        word-break: break-word;
+        /* width: 100px; */
+        overflow: hidden;
+    }
 </style>
-<table id="example" class="table table-stripped table-bordered" cellspacing="0" width="100%">
-    <thead>
-    <tr>
-        <th>Title</th>
-        <th>Authors</th>
-        <th>Year</th>
-    </tr>
-    </thead>
-    <tbody>
-        {% for publication in publications %}
+    <table id="example" class="table table-stripped table-bordered" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>Field</th>
+                <th>Title</th>
+                <th>Authors</th>
+                <th>Nationality</th>
+                <th>Year</th>
             </tr>
-                <td>{{publication.title|truncatechars:100}}</td>
-                <td>{{publication.authors}}</td>
-                <td>{{publication.date}}</td>
-            </tr>
-        {% endfor %}
-    </tbody>
-</table>
+            </thead>
+            <tbody>
+                {% for publication in publications %}
+                    <tr>
+                        <td>{{publication.research_field.name}}</td>
+                        <td>{{publication.title}}</td>
+                        <td>{{publication.authors}}</td>
+                        <td>{% if publication.national %} National {%else%} International {%endif%}</td>
+                        <td>{{publication.date}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+    </table>
 {% endblock %}
 
 {% block script %}
@@ -31,7 +40,6 @@
 <script>
     $(function(){
         window.print();
-        window.close();
     });
 </script>
 {%endblock%}

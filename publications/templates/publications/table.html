@@ -1,0 +1,269 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Research</title>
+    <link rel="shortcut icon" href="images/favicon.gif" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href="css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/table-style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="logo">
+        <div class="container">
+            <img src="images/logo.png">
+        </div>
+    </div>
+    <section class="container table-page">
+        <div class="navigation-bar">
+            <div class="row">
+                <div class="col-md-8">
+                    <ul class="list-unstyled">
+                        <li><a href="">Profile</a></li>
+                        <li><a href="">Publication</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <a href="" class="logout">logout</a>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <header class="text-center">
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-4">
+                        <h1>Publications</h1>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="pull-right" style="margin-top:25px;">
+                            <a class="btn filter-Toggle" style="display: inline;">Filter</a>
+                            <a class="btn" style="display: inline;">Clear filter</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <form id="form-publication" class="filter-publication">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Title:-</label>
+                            <input class="form-control" type="text" name="title" placeholder="Title">
+
+                            <div class="custom-alert">this field is requird *</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Authors:-</label>
+                            <input class="form-control" type="text" name="speciality" placeholder="authors">
+
+                            <div class="custom-alert">this field is requird *</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Research:-</label>
+                            <select class="selectpicker" data-live-search="true" title="Choose research">
+                                <option>option 1</option>
+                                <option>option 2</option>
+                                <option>option 3</option>
+                                <option>option 4</option>
+                                <option>option 5</option>
+                                <option>option 6</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>National or international:-</label>
+                            <select class="selectpicker" data-live-search="true" title="Choose">
+                                <option>National</option>
+                                <option>International</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Year of Research:-</label>
+                            <select class="selectpicker" data-live-search="true" title="Choose research">
+                                <option>2018</option>
+                                <option>2017</option>
+                                <option>2016</option>
+                                <option>2015</option>
+                                <option>2014</option>
+                                <option>2013</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Published In:-</label>
+
+                            <div class="checkbox-group">
+                                <!--Jonfrance-->
+                                <input type="radio" id="jonfrance" name="publishedIn" class="material-checkbox" data-target="jonfrance">
+                                <label class="checkbox_label" for="jonfrance">Jonfrance</label>
+
+                                <div class="jonfrance hidde">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input class="form-control" type="text" name="Journalname" placeholder="Journal Name">
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input class="form-control" type="text" name="doi" placeholder="DOI">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Confrance-->
+                                <input type="radio" id="confrance" data-target="confrance" name="publishedIn" class="material-checkbox">
+                                <label class="checkbox_label" for="confrance">Confrance</label>
+
+                                <div class="confrance hidde">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <input class="form-control" type="text" name="Confrancedetails" placeholder="Confrance Details">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Book-->
+                                <input type="radio" id="book" name="publishedIn" class="material-checkbox" data-target="book">
+                                <label class="checkbox_label" for="book">Book</label>
+
+                                <div class="book hidde">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input class="form-control" type="text" name="Journalname" placeholder="Book Name">
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input class="form-control" type="text" name="doi" placeholder="ISSN">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Abstract:-</label>
+                            <textarea class="form-control"></textarea>
+                            <!--error-->
+                            <div class="custom-alert">this field is requird *</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="" class="btn"> Filter</a>
+                    </div>
+                </div>
+            </form>
+            <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>autho</th>
+                        <th>year</th>
+                        
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Title</th>
+                        <th>autho</th>
+                        <th>year</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <tr>
+                        <td>title1</td>
+                        <td>Ahmed</td>
+                        <td>1996</td>
+                    </tr>
+                    <tr>
+                        <td>title1</td>
+                        <td>Mohamed</td>
+                        <td>1995</td>
+                    </tr>
+                    <tr>
+                        <td>title1</td>
+                        <td>Ahmed</td>
+                        <td>1995</td>
+                    </tr>
+                    <tr>
+                        <td>title1</td>
+                        <td>Mohamed</td>
+                        <td>1994</td>
+                    </tr>
+                </tbody>
+            </table>
+            <a href="" class="print text-center"> Print <i class="fa fa-print"></i></a>
+        </div>
+        <canvas id="dataChart"></canvas>
+    </section>
+    <script src="js/jquery.2.1.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-select.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/jquery.dataTables.min.js"></script>
+    <script src="js/Chart.min.js"></script>
+    <script type="text/javascript">
+        $('#example').DataTable({
+            responsive: {
+                orthogonal: 'responsive'
+            }
+        });
+        $('.filter-Toggle').on('click', function () {
+            $('.filter-publication').slideToggle();
+        })
+        var ctx = document.getElementById("dataChart").getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ["title1", "title2", "title3", "title4"],
+                datasets: [{
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: [
+                'rgb(54, 162, 235)',
+                'rgb(54, 162, 235)',
+                'rgb(54, 162, 235)',
+                'rgb(54, 162, 235)',
+            ]
+        }]
+            },
+            options: {
+                legend: {
+                    display: false,
+                },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+            }]
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

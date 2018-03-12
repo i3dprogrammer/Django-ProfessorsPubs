@@ -50,7 +50,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="details-creat">
-                            <label>{% if publication.pub_type == '1' %} Journal {% elif publication.pub_type == '2' %} Confrance {% elif publication.pub_type == '3' %} Book {%endif%} {% if publication.pub_type == '2' %}Details{% else %}Name{% endif %}:-</label>
+                            <label>{% if publication.pub_type == '1' %} Journal {% elif publication.pub_type == '2' %} Conference {% elif publication.pub_type == '3' %} Book {%endif%} {% if publication.pub_type == '2' %}Details{% else %}Name{% endif %}:-</label>
                             <p>{{publication.details}}</p>
                         </div>
                     </div>
@@ -69,7 +69,9 @@
                         </div>
                     </div>
                     <div class="col-md-12">
-                        <a href="{% url 'publications:edit' publication.id %}" class="btn"><i class="fa fa-cloud-upload"></i> Change</a>
+                        {% if can_change %}
+                            <a href="{% url 'publications:edit' publication.id %}" class="btn"><i class="fa fa-cloud-upload"></i> Change</a>
+                        {%endif%}
                     </div>
                 </div>
             </form>

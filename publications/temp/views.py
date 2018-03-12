@@ -8,7 +8,6 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.utils import timezone
 from .models import Publication, ResearchField
 from p_profile.models import ProfessorProfile
-from collections import Counter
 
 login_redirect_url = getattr(settings, 'LOGIN_URL', 'accounts:login')
 
@@ -207,25 +206,6 @@ class FilterView(View):
             'fields': ResearchField.objects.all(),
             'years': range(1980, timezone.now().year+1),
         }
-        
-        try:
-            years_counter = Counter(sorted([d.date for d in context['publications']]))
-            nationality_counter = Counter(sorted(['National' if d.national else 'International' for d in context['publications']]))
-            published_counter = Counter(sorted(['Journal' if d.pub_type == '1' else 'Conference' if d.pub_type == '2' else 'Book' for d in context['publications']]))
-            histogram = {
-                'years_titles': list(years_counter),
-                'years_values': list(years_counter.values()),
-                'nationality_titles': list(nationality_counter),
-                'nationality_values': list(nationality_counter.values()),
-                'published_titles': list(published_counter),
-                'published_values': list(published_counter.values()),
-            }
-        except:
-            histogram = {
-                'error': True
-            }
-
-        context['histogram'] = histogram
 
         if print_pub == 'print':
             return render(request, 'publications/print.html', context)
